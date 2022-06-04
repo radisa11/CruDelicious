@@ -1,0 +1,35 @@
+@using CruDelicious.Models
+@model Dish
+
+<div class="text-left">
+    <div class="row-2">
+        <h1>Add a new dish!</h1>
+            <form asp-action="Create" asp-controller="Home" method="post" >
+                <span asp-validation-for="Chef"></span>
+                <label asp-for="Chef"></label>
+                <input asp-for="Chef" class="form-control">
+                <br>
+                <span asp-validation-for="Name"></span>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+                <br>
+                <span asp-validation-for="Calories"></span>
+                <label asp-for="Calories"></label>
+                <input asp-for="Calories" class="form-control">
+                <br>
+                <span asp-validation-for="Tastiness"></span>
+                <label asp-for="Tastiness"></label>
+                <select asp-for="Tastiness">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <textarea asp-for="Description" rows="4"></textarea>
+                <br>
+                <input type="submit" value="Add Dish">
+            </form>
+    </div>
+</div>

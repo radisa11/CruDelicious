@@ -1,0 +1,18 @@
+@{
+        foreach(var x in @ViewBag.onedish)
+        {
+            <h1>@x.Name</h1>
+            <h2>@x.Chef</h2>
+            <br>
+            <p>@x.Description</p>
+            <p><strong>Calories:</strong> @x.Calories</p>
+            <p><strong>Tastiness</strong> @x.Tastiness</p>
+            <form action="/Home/Dish/@x.DishId/Delete" method="post">
+                <input type="submit" value="Delete">
+            </form>
+            <br>
+            <form action="/Home/Dish/@x.DishId/Edit" method="post">
+                <input type="submit" value="Edit">
+            </form>
+        }
+    }

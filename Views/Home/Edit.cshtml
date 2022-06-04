@@ -1,0 +1,38 @@
+@using CruDelicious.Models
+@model Dish
+
+@{
+    foreach(var x in @ViewBag.onedish){
+        <h1>Edit @x.Name</h1>
+        
+        <form asp-action="Update" asp-controller="Home" method="post">
+            <span asp-validation-for="Chef"></span>
+            <label asp-for="Chef"></label>
+            <input asp-for="Chef" value="@x.Chef">
+            <br>
+            <span asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" value="@x.Name">
+            <br>
+            <span asp-validation-for="Calories"></span>
+            <label asp-for="Calories"></label>
+            <input asp-for="Calories" value="@x.Calories">
+            <br>
+            <span asp-validation-for="Tastiness"></span>
+            <label asp-for="Tastiness"></label>
+            <select asp-for="Tastiness">
+                <option value="@x.Tastiness">@x.Tastiness</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br>
+            <textarea asp-for="Description" rows="4">@x.Description</textarea>
+            <br>
+            <input type="hidden" name="DishId" value="@x.DishId">
+            <input type="submit" value="Edit Dish">
+        </form>
+    }    
+}
